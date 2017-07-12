@@ -49,10 +49,36 @@ const blogPost = {
 
 // create a template that can be manipulated by changing
 // the values of the keys in the const blogPost
-let template = `
 
-<h2>${title}</h2>
-<div>${meta}</div>
-<div>${post}</div>
-<div>${site}</div>
+// 1) start with the article tag for everything to sit inside of
+
+// 2) create your header tags and include your tie into the
+//     blogPost with ${}
+
+// 3) call the div class meta to link your blogPost to your
+//   CSS and include the date variable in a nested tag
+
+// 4) continue throughout the page to 'divide and conquer'
+
+let template = `
+<article>
+
+  <h2>${blogPost.title}</h2>
+
+  <div class = "meta">${blogPost.meta}
+    <span class = "date">Written on ${blogPost.date}</span>
+  </div>
+
+  <div class = "post">
+    <img src= "${blogPost.post.image}">
+    ${blogPost.post.content}
+  </div>
+
+  <div class = "site">
+    Part of this content was pulled from <a href = "${blogPost.site}"</a>
+  </div>
+
+</article>
 `
+// Now we want to connect our template to our document
+document.querySelector('.container').innerHTML = template
