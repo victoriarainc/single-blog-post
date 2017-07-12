@@ -65,8 +65,8 @@ let template = `
 
   <h2>${blogPost.title}</h2>
 
-  <div class = "meta">${blogPost.meta}
-    <span class = "date">Written on ${blogPost.date}</span>
+  <div class = "meta">
+    <span class = "date">Written on ${blogPost.meta.date}</span>
   </div>
 
   <div class = "post">
@@ -75,10 +75,12 @@ let template = `
   </div>
 
   <div class = "site">
-    Part of this content was pulled from <a href = "${blogPost.site}"</a>
+    Part of this content was pulled from <a href = "${blogPost.site.url}">${blogPost.site.name}</a>
   </div>
 
 </article>
 `
+// ???????Why is the > needed after url but before name???
+
 // Now we want to connect our template to our document
 document.querySelector('.container').innerHTML = template
